@@ -55,14 +55,7 @@ export async function POST(request: Request) {
         district: payload.district ?? null,
         city: payload.city ?? null,
         amount: payload.fraud_amount ?? null,
-        complainant_type: 'citizen',
         status: 'submitted',
-        source: 'ncrp-portal',
-        raw_reference: JSON.stringify({
-          ...payload,
-          victim_account_no: undefined,
-          mule_account_no: undefined,
-        }),
       })
       .select('id, complaint_id, status')
       .single()
